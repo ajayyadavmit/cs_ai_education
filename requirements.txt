@@ -1,0 +1,5 @@
+google-genai
+feedparser
+requests
+trafilatura
+beautifulsoup4
