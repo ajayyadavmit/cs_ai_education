@@ -38,7 +38,7 @@ jobs:
         run: |
           python scripts/build_digest.py
 
-      - name: Commit updated digest
+      - name: Commit and push updated digest
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -47,7 +47,20 @@ jobs:
 
           if ! git diff --cached --quiet; then
             git commit -m "Update CS and AI Education Digest"
-            git push
+
+            # Retrieve the latest changes from GitHub
+            git fetch origin main
+
+            # Replay our digest commit on top of the latest remote commit
+            git rebase origin/main
+
+            # Push the updated branch
+            git push origin HEAD:main
           else
             echo "No changes to publish."
           fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
