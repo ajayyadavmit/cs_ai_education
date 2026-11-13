@@ -43,7 +43,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add cs-ai-education-digest.html data/articles.json
+          git add index.html data/articles.json
 
           if ! git diff --cached --quiet; then
             git commit -m "Update CS and AI Education Digest"
