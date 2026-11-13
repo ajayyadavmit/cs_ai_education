@@ -144,7 +144,7 @@ BASE_SEARCH_QUERIES = [
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 DATA_FILE = DATA_DIR / "articles.json"
-HTML_FILE = ROOT / "cs-ai-education-digest.html"
+HTML_FILE = ROOT / "index.html"
 
 logging.basicConfig(
     level=logging.INFO,
